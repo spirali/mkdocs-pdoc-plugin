@@ -47,7 +47,7 @@ class PdocPlugin(mkdocs.plugins.BasePlugin):
 
     def on_config(self, config, **kwargs):
         self.docs_dir = config["docs_dir"]
-        self.site_url = config["site_url"]
+        self.site_url = config.get("site_url") or config["site_dir"]
         self.api_path = self.config.get("api_path") or ""
 
     def on_page_markdown(self, src: str, page, config, *args, **kwargs):
