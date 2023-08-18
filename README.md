@@ -8,38 +8,39 @@ This plugin is inspired by https://github.com/Kobzol/mkdocs-nedoc-plugin
 # Usage
 1) Install `mkdocs-pdoc-plugin`
 
- ```bash
- $ python3 -m pip install git+https://github.com/spirali/mkdocs-pdoc-plugin
- ```
+    ```commandline
+    $ python3 -m pip install git+https://github.com/spirali/mkdocs-pdoc-plugin
+    ```
 
 2) Generate documentation with `pdoc` into directory with mkdoc's markdown files. 
 
-```commandline
-pdoc mypackage -o docs/<PATH_TO_API>
-```
+    ```commandline
+    $ pdoc mypackage -o docs/<PATH_TO_API>
+    ```
 
 
 3) Configure plugin in `mkdocs.yaml`
 
-```yaml
-  - pdoc:
-      api_path: <PATH_TO_API>
-```
+    ```yaml
+    plugins:
+      - pdoc:
+          api_path: <PATH_TO_API>
+    ```
 
-`api_path` has to be relative path where to find generated documentation in the documentation directory. 
+    `api_path` has to be a relative path where to find generated documentation in the documentation directory. 
 
  
 4) Link to code in `mkdocs` documentation. Link has to start with "pdoc:"
  
-```
-The [MyClass](pdoc:mypackage.MyClass) class is awesome.
-The [do_something](pdoc:mypackage.MyClass.do_something) method is awesome.
-```
+    ```
+    The [MyClass](pdoc:mypackage.MyClass) class is awesome.
+    The [do_something](pdoc:mypackage.MyClass.do_something) method is awesome.
+    ```
 
-You can omit title:
-
-```
-The [](mypackage.MyClass) class is awesome.
-```
-
-and the last part of the name will be used as title (`MyClass` in this case)
+    You can omit title:
+    
+    ```
+    The [](mypackage.MyClass) class is awesome.
+    ```
+    
+    and the last part of the name will be used as the title (`MyClass` in this case)
